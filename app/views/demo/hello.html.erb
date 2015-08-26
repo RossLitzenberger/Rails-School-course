@@ -8,3 +8,9 @@
 <% end %>
 <a href="/demo/index">index page 1</a>
 <%=link_to('Index page 2', {:action => 'index'}) %>
+<br>
+ID: <%= params[:id]%>
+ID: <%=@id%>
+Next Pages: <%= @page + 1%>
+<hr>
+<%= params.inspect %>
