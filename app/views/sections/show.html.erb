@@ -1,26 +1,47 @@
-<%= link_to "<<Back to Section", {:action => 'index', :id => @section.id }, class: "btn btn-primary" %>
-<div class="pages show">
-  <h2>Show Page</h2>
-  <table>
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="sections show">
+  <h2>Show Section</h2>
+
+  <table summary="Section detail view">
     <tr>
-      <td>Name</td>
-      <td><%= @section.name%></td>
+      <th>Page ID</th>
+      <td><%= @section.page_id %></td>
     </tr>
     <tr>
-      <td>Position</td>
-      <td><%= @section.position%></td>
+      <th>Name</th>
+      <td><%= @section.name %></td>
     </tr>
     <tr>
-      <td>Visible</td>
-      <td><%= @section.visible%></td>
+      <th>Position</th>
+      <td><%= @section.position %></td>
     </tr>
     <tr>
-      <td>Content</td>
-      <td><%= @section.content%></td>
+      <th>Visible?</th>
+      <td><%= @section.visible ? 'true' : 'false' %></td>
     </tr>
     <tr>
-      <td>Content_type</td>
-      <td><%= @section.content_type%></td>
+      <th>Content Type</th>
+      <td><%= @section.content_type %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= @section.content %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @section.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @section.updated_at %></td>
     </tr>
   </table>
+
 </div>

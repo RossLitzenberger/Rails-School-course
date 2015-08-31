@@ -1,6 +1,9 @@
 class SectionsController < ApplicationController
+
+  layout false
+
   def index
-    @sections = Section.all
+    @sections = Section.sorted
   end
 
   def show
@@ -8,12 +11,13 @@ class SectionsController < ApplicationController
   end
 
   def new
-    @section = Section.new
+    @section = Section.new({:name => "Default"})
   end
 
   def create
     @section = Section.new(section_params)
     if @section.save
+      flash[:notice] = "Section created successfully."
       redirect_to(:action => 'index')
     else
       render('new')
@@ -27,7 +31,8 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
-      redirect_to(:action => 'index')
+      flash[:notice] = "Section updated successfully."
+      redirect_to(:action => 'show', :id => @section.id)
     else
       render('edit')
     end
@@ -39,12 +44,15 @@ class SectionsController < ApplicationController
 
   def destroy
     section = Section.find(params[:id]).destroy
-    section.destroy
+    flash[:notice] = "Section destroyed successfully."
     redirect_to(:action => 'index')
   end
 
+
   private
-  def section_params
-    params.require(:section).permit(:name, :position, :visible, :content_type, :content)
-  end
+
+    def section_params
+      params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content)
+    end
+
 end
