@@ -1,12 +1,31 @@
-<h1>Pages#index</h1>
-<p><%= link_to "New", {:action => 'new'}, class: "page new" %></p>
-
-<% @pages.each do |page|%>
-  <%= page.name%>
-  <%= page.permalink%>
-  <%= page.position%>
-  <%= page.visible%>
-  <%= link_to "Show", {:action => 'show', :id => page.id} %>
-  <%= link_to "Edit", {:action => 'edit', :id => page.id} %>
-  <%= link_to "Delete", {:action => 'delete', :id => page.id} %>
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
 <% end %>
+
+<div class="page index">
+  <h2>Page</h2>
+  <%= link_to "Add New Subject", {:action => 'new'}, :class => "action new" %>
+  <table class="listing" summary="Subject list">
+  <tr class="header">
+    <th>Name</th>
+    <th>Permalink</th>
+    <th>Position</th>
+    <th>Visible</th>
+  </tr>
+  <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.name %></td>
+      <td><%= page.permalink %></td>
+      <td class="center"><%= page.position %></td>
+      <td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
+      <td class="actions">
+        <%= link_to "Show", {:action => 'show', :id => page.id }, class: "action show" %>
+        <%= link_to "Edit", {:action => 'edit', :id => page.id }, class: "action edit" %>
+        <%= link_to "Delete", {:action => 'delete', :id => page.id }, class: "action delete" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

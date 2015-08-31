@@ -53,6 +53,7 @@ class SubjectsController < ApplicationController
     flash[:notice] = "Subject '#{subject.name}' destroy successfully."
     redirect_to(:action => 'index')
   end
+
   private
   def subject_params
     # Same as user "params[:subject]", except that it:
