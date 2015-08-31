@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    @pages = Page.all
+    @pages = Page.sorted
   end
 
   def show
@@ -29,7 +29,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
-      flash[:notice] = "Page Update successfully"
+      flash[:notice] = "Page update successfully"
       redirect_to(:action => 'show', :id => @page.id)
     else
       render('edit')
@@ -42,12 +42,12 @@ class PagesController < ApplicationController
 
   def destroy
     page = Page.find(params[:id]).destroy
-    flash[:notice] = "Page '#{page.name}' destroy successfully."
+    flash[:notice] = "Page destroy successfully."
     redirect_to(:action => 'index')
   end
 
   private
   def page_params
-    params.require(:page).permit(:name, :permalink, :position, :visible)
+    params.require(:page).permit(:subject_id, :name, :permalink, :position, :visible)
   end
 end

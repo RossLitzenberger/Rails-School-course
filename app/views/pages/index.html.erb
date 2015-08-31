@@ -4,22 +4,29 @@
   </div>
 <% end %>
 
-<div class="page index">
-  <h2>Page</h2>
-  <%= link_to "Add New Subject", {:action => 'new'}, :class => "action new" %>
-  <table class="listing" summary="Subject list">
+<div class="pages index">
+  <h2>Pages</h2>
+
+  <%= link_to "Add New Page", {:action => 'new'}, :class => "action new" %>
+
+  <table class="listing" summary="Page list">
   <tr class="header">
-    <th>Name</th>
+    <th>Subject ID</th>
+    <th>Page</th>
     <th>Permalink</th>
     <th>Position</th>
     <th>Visible</th>
+    <th>Sections</th>
+    <th>Actions</th>
   </tr>
   <% @pages.each do |page| %>
     <tr>
+      <td><%= page.position %></td>
+      <td><%= page.subject_id %></td>
       <td><%= page.name %></td>
       <td><%= page.permalink %></td>
-      <td class="center"><%= page.position %></td>
       <td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
+      <td class="center"><%= page.sections.size %></td>
       <td class="actions">
         <%= link_to "Show", {:action => 'show', :id => page.id }, class: "action show" %>
         <%= link_to "Edit", {:action => 'edit', :id => page.id }, class: "action edit" %>

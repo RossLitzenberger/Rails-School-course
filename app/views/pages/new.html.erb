@@ -8,7 +8,11 @@
 <div class="pages new">
   <h2>Create Page</h2>
   <%= form_for :page, :url => {:action => 'create'} do |f| %>
-    <table summary="Subject form fields">
+    <table summary="Page form fields">
+      <tr>
+        <th>Subject ID</th>
+        <td><%= f.text_field :subject_id %></td>
+      </tr>
       <tr>
         <th>Name</th>
         <td><%= f.text_field :name %></td>
@@ -27,7 +31,7 @@
       </tr>
     </table>
     <div class="form-buttons">
-      <%= submit_tag("Create Subject") %>
+      <%= submit_tag("Create Page") %>
     </div>
   <% end %>
 </div>
