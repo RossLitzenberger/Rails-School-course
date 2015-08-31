@@ -1,7 +1,5 @@
 class SectionsController < ApplicationController
 
-  layout false
-
   def index
     @sections = Section.sorted
   end
