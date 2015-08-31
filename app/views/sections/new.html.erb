@@ -1,0 +1,29 @@
+<%= link_to "<< Back to List Section", {:action => 'index', :id => @section.id }, class: "btn btn-primary" %>
+<%= form_for :section, :url => {:action => 'create', :id => @section.id } do |f| %>
+<h2>Create Section</h2>
+<table summary="Section">
+  <tr>
+    <th>Name</ht>
+    <th><%= f.text_field :name, class: "form-control" %></th>
+  </tr>
+  <tr>
+    <th>Position</ht>
+    <th><%= f.text_field :position, class: "form-control" %></th>
+  </tr>
+  <tr>
+    <th>Visible</ht>
+    <th><%= f.text_field :visible, class: "form-control" %></th>
+  </tr>
+  <tr>
+    <th>Content</th>
+    <th><%= f.text_field :content, class: "form-control" %></th>
+  </tr>
+  <tr>
+    <th>Content_type</th>
+    <th><%= f.text_field :content_type, class: "form-control" %></th>
+  </tr>
+</table>
+<div class="">
+  <%= submit_tag("Create Section")%>
+</div>
+<% end %>

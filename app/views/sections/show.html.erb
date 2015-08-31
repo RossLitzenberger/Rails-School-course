@@ -1,0 +1,26 @@
+<%= link_to "<<Back to Section", {:action => 'index', :id => @section.id }, class: "btn btn-primary" %>
+<div class="pages show">
+  <h2>Show Page</h2>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><%= @section.name%></td>
+    </tr>
+    <tr>
+      <td>Position</td>
+      <td><%= @section.position%></td>
+    </tr>
+    <tr>
+      <td>Visible</td>
+      <td><%= @section.visible%></td>
+    </tr>
+    <tr>
+      <td>Content</td>
+      <td><%= @section.content%></td>
+    </tr>
+    <tr>
+      <td>Content_type</td>
+      <td><%= @section.content_type%></td>
+    </tr>
+  </table>
+</div>

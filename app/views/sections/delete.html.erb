@@ -1,0 +1,13 @@
+<%= link_to "<<Back to List Section", {:aciton => 'index'}, class: "btn btn-primary" %>
+  <div class="section delete">
+    <h2>Delete Section</h2>
+    <%= form_for(:section, :url => {:action => 'destroy', :id => @section.id }) do |f| %>
+      <p>Are you sure you want to destroy this section?</p>
+      <p class="refernce-name">
+        <%= @section.name %>
+      </p>
+      <div class="form-button">
+        <%= submit_tag("Delete Section")%>
+      </div>
+    <% end %>
+  </div>

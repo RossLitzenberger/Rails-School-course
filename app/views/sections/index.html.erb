@@ -1,0 +1,26 @@
+<h1>Section all</h1>
+<%= link_to "Create new section", {:action => 'new' } , class: "btn btn-primary" %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Content_type</th>
+    <th>Content</th>
+  </tr>
+
+<% @sections.each do |section|%>
+  <tr>
+    <td><%= section.name%></td>
+    <td><%= section.position%></td>
+    <td><%= section.visible%></td>
+    <td><%= section.content_type%></td>
+    <td><%= section.content%></td>
+    <td>
+      <%= link_to "Show", {:action => 'show', :id => section.id }, class: "action show" %>
+      <%= link_to "Edit", {:action => 'edit', :id => section.id }, class: "action edit" %>
+      <%= link_to "Delete", {:action => 'delete', :id => section.id }, class: "action delete" %>
+    </td>
+  </tr>
+<% end %>
+</table>
