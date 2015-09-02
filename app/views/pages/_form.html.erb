@@ -1,7 +1,7 @@
 <table summary="Page form fields">
   <tr>
-    <th><%= f.label :subject, "Subject ID"%></th>
-    <td><%= f.text_field :subject_id %></td>
+    <th><%= f.label :subject, "Subject"%></th>
+    <td><%= f.select :subject_id, @subjects.map {|s| [s.name, s.id]} %></td>
   </tr>
   <tr>
     <th><%= f.label :name, "Name"%></th>
@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <th><%= f.label :position %></th>
-    <td><%= f.text_field :position %></td>
+    <td><%= f.select :position, 1..@page_count %></td>
   </tr>
   <tr>
     <th><%= f.label :visible %></th>

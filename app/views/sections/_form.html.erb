@@ -1,7 +1,7 @@
 <table summary="Section form fields">
   <tr>
-    <th><%= f.label :page_id, "Page ID"%></th>
-    <td><%= f.text_field(:page_id) %></td>
+    <th><%= f.label :page_id, "Page"%></th>
+    <td><%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %></td>
   </tr>
   <tr>
     <th><%= f.label :name, "Name"%></th>
@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <th><%= f.label :position%></th>
-    <td><%= f.text_field(:position) %></td>
+    <td><%= f.select(:position, 1..@section_count) %></td>
   </tr>
   <tr>
     <th><%= f.label :visible%></th>
