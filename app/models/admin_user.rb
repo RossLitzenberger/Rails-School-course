@@ -1,6 +1,8 @@
 class AdminUser < ActiveRecord::Base
   # To configure a different table name:
   # self.table_name = "admin_users"
+  has_secure_password
+
   has_and_belongs_to_many :pages
   has_many :section_edits
   has_many :sections, :through => :section_edits
@@ -36,7 +38,7 @@ class AdminUser < ActiveRecord::Base
                      :confirmation => true
 
   validate :username_is_allowed
-  
+
   # validate :no_new_users_on_saturday, :on => :create
 
   # custom Validations
