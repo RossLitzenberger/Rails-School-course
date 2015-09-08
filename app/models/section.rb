@@ -4,6 +4,8 @@ class Section < ActiveRecord::Base
   has_many :section_edits
   has_many :editors, :through => :section_edits, :class_name => "AdminUser"
 
+  acts_as_list :scope => :page
+
   CONTENT_TYPES = ['text', 'HTML']
 
   validates_presence_of :name

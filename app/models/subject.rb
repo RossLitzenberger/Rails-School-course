@@ -2,6 +2,8 @@ class Subject < ActiveRecord::Base
 
   has_many :pages
 
+  acts_as_list 
+
   # Don't need to validate (in most cases);
   # ids, foreign keys, timestamps, booleans, counters
   validates_presence_of :name
