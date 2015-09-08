@@ -1,5 +1,7 @@
 <% @page_title = "Pages" %>
+
 <%= link_to("<< Back to Subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
+
 <div class="pages index">
   <h2>Pages</h2>
 
@@ -24,6 +26,7 @@
       <td class="center"><%= status_tag(page.visible) %></td>
       <td class="center"><%= page.sections.size %></td>
       <td class="actions">
+        <%= link_to("View Sections", {:controller => 'sections', :page_id => page.id}, :class => 'action show') %>
         <%= link_to("Show", {:action => 'show', :id => page.id, :subject_id => @subject.id}, :class => 'action show') %>
         <%= link_to("Edit", {:action => 'edit', :id => page.id, :subject_id => @subject.id}, :class => 'action edit') %>
         <%= link_to("Delete", {:action => 'delete', :id => page.id, :subject_id => @subject.id}, :class => 'action delete') %>
