@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :subjects do
+    member do
+      get :delete
+    end
+    resources :pages do
+      member do
+        get :delete
+      end
+      resources :sections do
+        member do
+          get :delete
+        end
+      end
+    end
+  end
 
   root "public#index"
   get "show/:permalink", :to => 'public#show'
